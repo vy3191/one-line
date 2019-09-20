@@ -1,7 +1,9 @@
 import React, {useState,useEffect} from 'react';
 import { withFormik, Form, Field } from "formik";
+import {Button} from 'react-bootstrap'
 import * as yup from 'yup';
 import axios from 'axios';
+import './Form.scss';
 
 function SignUp (props){
   const {errors,touched, status}= props;
@@ -18,9 +20,10 @@ function SignUp (props){
     <Field type="text" name="name" placeholder="name"/>
     
     {errors.password && touched.password && <p className='error'>{errors.password}</p>}
-    <Field type="password" name="password" placeholder="password"/>
-    
-    <button type="submit">Sign Up</button>
+    <Field type="password" name="password" placeholder="password"/>    
+    <div className='sign-in-sign-up-button'>
+       <Button variant="danger" size="lg">Sign Up</Button>
+    </div>
     
    </Form>
   )

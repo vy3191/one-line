@@ -1,19 +1,25 @@
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter as Router, NavLink} from 'react-router-dom';
+import { Route, NavLink} from 'react-router-dom';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
-function Form() {
+import './Form.scss';
+
+export default function Form() {
   return(
-    <React.Fragment>
+    <div className='sign-up-sign-in-form'>
+      <div className='nav-links'>
+        <NavLink to='/sign-up'>
+          <button variant="primary" size="lg" className='custom-btn'>Sign Up</button>
+        </NavLink>
+        <NavLink to='/sign-in'>
+           <button variant="primary" size="lg" className='custom-btn'>Sign In</button>
+        </NavLink>
+      </div>     
       <div>
-        <NavLink to='/sign-up'>Sign Up</NavLink>
-        <NavLink to='/sign-in'>Sign In</NavLink>
+        <Route exact path='/sign-up' render={(props) => <SignUp {...props}/>} />
+        <Route exact path='/sign-in' render={(props) => <SignIn {...props}/>} />
       </div>
-      <hr/>
-      <div>
-        <Route path='sign-up' render={(props) => <SignUp {...props}/>} />
-        <Route path='sign-in' render={(props) => <SignIn {...props}/>} />
-      </div>
-    </React.Fragment>
+    </div>
   );
 }
+

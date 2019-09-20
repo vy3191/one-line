@@ -6,11 +6,13 @@ import Profile from './components/User/Profile';
 import EntryForm from './components/Journal/EntryForm';
 import TenYear from './components/Journal/TenYear';
 import RecentEntries from './components/Journal/RecentEntries';
+import Form from '../src/components/Form/Form';
+
 
 function App() {
   return (
     <div className="App">
-      
+      <Form />
     </div>
   );
 }
