@@ -10,11 +10,7 @@ import RecentEntries from './components/Journal/RecentEntries';
 function App() {
   return (
     <div className="App">
-      <LoginSignup />
-      <Profile />
-      <EntryForm />
-      <TenYear />
-      <RecentEntries />
+      
     </div>
   );
 }
