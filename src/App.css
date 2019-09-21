@@ -1,6 +1,14 @@
+ 
 .App {
   text-align: center;
+  min-height: 100%;
+  background-image: url("/Main.jpg"); /* The image used */
+  background-color: transparent; /* Used if the image is unavailable */   
+  background-position: center;
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
 }
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

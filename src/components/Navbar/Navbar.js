@@ -13,9 +13,9 @@ function Header(props) {
         props.history.push('/sign-in');
     }
    return(
-    <Navbar bg="primary" variant="dark">
+    <Navbar className='header' style={{background: 'rgba(0,0,0,.5)', color: '#FFFFFF'}}>
       <Link to='/sign-in'>
-         <Navbar.Brand href="#home">Home</Navbar.Brand>
+         <Navbar.Brand href="#home" style={{color:'#FFF'}}>Home</Navbar.Brand>
       </Link>
       <Nav className="mr-auto">
         <p className='one-day-a-line'>One-day-a-line</p>
