@@ -5,10 +5,11 @@ import SignIn from './SignIn';
 import './Form.scss';
 
 export default function Form() {
+  
   return(
     <div className='sign-up-sign-in-form'>
       <div className='nav-links'>
-        <NavLink to='/sign-up'>
+        <NavLink to='/'>
           <button variant="primary" size="lg" className='custom-btn'>Sign Up</button>
         </NavLink>
         <NavLink to='/sign-in'>
@@ -16,8 +17,8 @@ export default function Form() {
         </NavLink>
       </div>     
       <div>
-        <Route exact path='/sign-up' render={(props) => <SignUp {...props}/>} />
-        <Route exact path='/sign-in' render={(props) => <SignIn {...props}/>} />
+        <Route exact path='/' render={(props) => <SignUp {...props}/>} />
+        <Route path='/sign-in' render={(props) => <SignIn {...props}/>} />
       </div>
     </div>
   );

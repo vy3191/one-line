@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import { withFormik, Form, Field } from "formik";
+import {withRouter} from 'react-router-dom';
 import {Button} from 'react-bootstrap'
 import * as yup from 'yup';
 import axios from 'axios';
@@ -7,51 +8,55 @@ import './Form.scss';
 
 function SignUp (props){
   const {errors,touched, status}= props;
+   console.log(status)
   const [users, setUsers] = useState([]);
   useEffect(() => {
     if(status) {
        setUsers([...users, status])
     }
   }, [status])
-  
+
  return(
    <Form>
-    { touched.name && errors.name && <p className='error'>{errors.name}</p>}
-    <Field type="text" name="name" placeholder="name"/>
+    { touched.username && errors.username && <p className='error'>{errors.username}</p>}
+    <Field type="text" name="username" placeholder="username"/>
     
-    {errors.password && touched.password && <p className='error'>{errors.password}</p>}
+    {errors.password && touched.password && <p className='error password'>{errors.password}</p>}
     <Field type="password" name="password" placeholder="password"/>    
     <div className='sign-in-sign-up-button'>
-       <Button variant="danger" size="lg">Sign Up</Button>
+       <Button type='submit' variant="danger" size="lg">Sign Up</Button>
     </div>
-    
+  
+   { users.length>0 && <p className='success-msg'>{users[users.length-1].username} successfully signed up</p>}
    </Form>
   )
 };
 
-export default withFormik({
+export default withRouter(withFormik({
    mapPropsToValues: (values) => {
      return {
-       name: values.name || '',
-       email: values.email || '',
-       password: values.password || '',
-       role: values.role || '',
-       service: values.service || ''
+       username: values.name || '',      
+       password: values.password || ''      
+      
      }
    },
    validationSchema: yup.object().shape({
-      name:yup.string().required("Username is required"),      
-      password:yup.string().required() .min(8, 'Should be at lease 8 characters')         
+      username:yup.string().required("Username is required"),      
+      password:yup.string().required() .min(3, 'Should be at lease 8 characters')         
    }),
-   handleSubmit: (values, {setStatus}) => {
+   handleSubmit: (values, FormikBag) => {
       console.log(values);
-      axios.post("https://reqres.in/api/users", values)
-           .then( res => {              
-              setStatus(res.data);
-
+      axios.post("https://bw-one-line-a-day.herokuapp.com/api/auth/register", values)
+           .then( response => {              
+              console.log(response.data.user)
+              FormikBag.setStatus(response.data.user);
+              setTimeout(() =>{
+                FormikBag.props.history.push('/sign-in')
+              },2000);
+             
            })
            .catch( error=> {
               console.log(error)
            })
    }
-})(SignUp);
+})(SignUp));

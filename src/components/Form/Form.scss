@@ -59,13 +59,17 @@ form {
 
 
 .error {
-  margin: 0;
+  margin-bottom: 20px;
   position: absolute;
   color: #721c24;
   background-color: #f8d7da;
   border-color: #f5c6cb;
   border-radius: 4px;
   padding: 5px 10px;
+}
+
+.password {
+  margin-top:-32px
 }
 
 form>input {
@@ -110,7 +114,7 @@ button {
   padding: 18px 36px;
   border-style: none;
   border-radius: 5px;
-  background-color: #08c;
+  background-color: #073D35;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
   font-size: 17px;
   font-weight: 500;
@@ -135,23 +139,10 @@ button.outline {
   color: #555;
 }
 
-ul {
-  list-style: none;
-  display: inline-block;
-  margin: 0 0 50px;
-  padding: 0;
-  text-align: left;
+.success-msg {
+   color: rgb(7, 122, 7);
+   text-shadow: 1px 1px 1px rgba(0,0,0,.7);
 }
 
-ul li {
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  width: 460px;
-  padding: 32px;
-  margin-bottom: 10px;
-}
 
-ul li span {
-  display: block;
-}
 
