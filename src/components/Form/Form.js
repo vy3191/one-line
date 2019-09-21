@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import { Route, NavLink} from 'react-router-dom';
+import { Route, NavLink, Switch} from 'react-router-dom';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
+import Welcome from '../Journal/Welcome';
 import './Form.scss';
+
 
 export default function Form() {
   
@@ -10,15 +12,18 @@ export default function Form() {
     <div className='sign-up-sign-in-form'>
       <div className='nav-links'>
         <NavLink to='/'>
-          <button variant="primary" size="lg" className='custom-btn'>Sign Up</button>
+          <button  size="lg" className='custom-btn'>Sign Up</button>
         </NavLink>
         <NavLink to='/sign-in'>
-           <button variant="primary" size="lg" className='custom-btn'>Sign In</button>
+           <button  size="lg" className='custom-btn'>Sign In</button>
         </NavLink>
       </div>     
       <div>
+       <Switch>
         <Route exact path='/' render={(props) => <SignUp {...props}/>} />
-        <Route path='/sign-in' render={(props) => <SignIn {...props}/>} />
+        <Route  path='/sign-in' render={(props) => <SignIn {...props}/>} />
+        <Route  path='/welcome' render={(props) => <Welcome {...props} />} />
+        </Switch> 
       </div>
     </div>
   );

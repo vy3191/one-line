@@ -1,0 +1,30 @@
+/* Journal Entries */
+
+   .journals {
+       display: flex;
+       flex-direction: row;
+       justify-content: space-around;
+   }
+
+   ul {
+     width: 280px;
+     background: #48e0eb4b;
+     list-style: none;
+     padding: 40px 0px 30px 40px;
+     text-align: left;
+     li {
+       padding: 0px;
+       width: 300px;
+       margin:0px;
+       display: inline-block;
+       a {
+         padding: 7px 12px;
+         color: #FFFFFF;
+         font-size: 18px;
+       }
+       a:hover {
+         text-decoration: none;
+         color: maroon;
+       }
+     }
+   }

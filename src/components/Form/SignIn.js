@@ -27,7 +27,7 @@ function SignIn (props){
     <div className='sign-in-sign-up-button'>
         <Button type='submit' variant="success" size="lg">Sign In</Button>
     </div>
-    <p>If you do not have account, please 
+    <p>Please {" "} 
          <Link to='/'>
             <span>sign up here</span>.
          </Link>
@@ -56,6 +56,7 @@ export default withRouter(withFormik({
               FormikBag.setStatus(res.data);
               sessionStorage.setItem(SESSION_STORAGE_KEY, res.data.token);
               FormikBag.resetForm();
+              FormikBag.props.history.push('/welcome');
            })
            .catch( error=> {
               console.log(error)

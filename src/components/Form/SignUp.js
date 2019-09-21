@@ -28,6 +28,7 @@ function SignUp (props){
     </div>
   
    { users.length>0 && <p className='success-msg'>{users[users.length-1].username} successfully signed up</p>}
+   { users.length === 0 && <p>Welcome to One line a day</p>}
    </Form>
   )
 };
