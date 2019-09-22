@@ -1,9 +1,11 @@
 import React from 'react';
-import {Route, NavLink} from 'react-router-dom';
+import {Route, NavLink, Switch} from 'react-router-dom';
 import EntryForm from './components/Journal/EntryForm';
 import TenYear from './components/Journal/TenYear';
-import Form from '../src/components/Form/Form';
 import Header from '../src/components/Navbar/Navbar';
+import SignUp from '../src/components/Form/SignUp';
+import SignIn from '../src/components/Form/SignIn'
+import Welcome from './components/Journal/Welcome';
 
 import './App.css';
 function App() {
@@ -11,7 +13,14 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Form />      
+      
+      <div>
+        <Switch>
+          <Route exact path='/' render={(props) => <SignUp {...props}/>} />
+          <Route  path='/sign-in' render={(props) => <SignIn {...props}/>} />
+          <Route  path='/welcome' render={(props) => <Welcome {...props} />} />
+        </Switch> 
+      </div>    
     </div>
   );
 }

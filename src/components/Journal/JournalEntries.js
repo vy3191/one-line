@@ -2,6 +2,6 @@ import React from 'react';
 
 export default function JournalEntries() {
    return(
-     <h1>Journal Entries</h1>
+     <h2>Journal Entries </h2>
    )
 }

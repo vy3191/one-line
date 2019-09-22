@@ -1,11 +1,16 @@
 import React, {useState,useEffect} from 'react';
 import { withFormik, Form, Field } from "formik";
-import {withRouter, Link} from 'react-router-dom';
+import {withRouter, Link,Route, NavLink, Switch} from 'react-router-dom';
 import {Button} from 'react-bootstrap'
+import Welcome from '../Journal/Welcome';
 import * as yup from 'yup';
 import axios from 'axios';
 import SESSION_STORAGE_KEY from '../../Constants/constants'
 import './Form.scss';
+
+
+
+
 
 function SignIn (props){
   const {errors,touched, status}= props;
@@ -19,13 +24,23 @@ function SignIn (props){
   console.log(users)
  return(
    <Form>
+    <div className='sign-up-sign-in-form'>
+      <div className='nav-links'>
+        <NavLink to='/'>
+          <button  size="lg" className='custom-btn'>Sign Up</button>
+        </NavLink>
+        <NavLink to='/sign-in'>
+           <button  size="lg" className='custom-btn'>Sign In</button>
+        </NavLink>
+      </div> 
+    </div>
     { touched.username && errors.username && <p className='error'>{errors.username}</p>}
-    <Field type="text" name="username" placeholder="Username"/>
+    <Field type="text" name="username" placeholder="username"/>
     
     {errors.password && touched.password && <p className='error password'>{errors.password}</p>}
     <Field type="password" name="password" placeholder="password"/>
     <div className='sign-in-sign-up-button'>
-        <Button type='submit' variant="success" size="lg">Sign In</Button>
+        <Button className='sign-button' type='submit' variant="success" size="lg">Sign In</Button>
     </div>
     <p>Please {" "} 
          <Link to='/'>

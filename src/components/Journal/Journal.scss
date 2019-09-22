@@ -1,13 +1,26 @@
-/* Journal Entries */
+ .journal-entries {
+      margin-top: 20px;
+      h1 {
+        padding: 10px;
+        width: 550px;
+        margin: 0 auto;
+        background-color: #fff;        
+        text-align: center;
+        border-radius: 45px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        text-shadow: .1em .1em .2em rgba(0, 0, 0, 0.6);
 
-   .journals {
+      }
+  .journal-container {   
        display: flex;
        flex-direction: row;
-       justify-content: space-around;
-   }
-
+       justify-content: flex-start; 
+       margin-top:50px;  
+    .journal-links {
+      width: 20%;
+     
    ul {
-     width: 280px;
+     height:300px;
      background: #48e0eb4b;
      list-style: none;
      padding: 40px 0px 30px 40px;
@@ -28,3 +41,6 @@
        }
      }
    }
+  }
+  }
+}

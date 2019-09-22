@@ -3,7 +3,7 @@ import React from 'react'
 export default function TenYear() {
     return (
         <div>
-            <h1>Ten Year Page</h1>
+            <h2>Ten Year Page</h2>
         </div>
     )
 }

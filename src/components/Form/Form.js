@@ -17,14 +17,7 @@ export default function Form() {
         <NavLink to='/sign-in'>
            <button  size="lg" className='custom-btn'>Sign In</button>
         </NavLink>
-      </div>     
-      <div>
-       <Switch>
-        <Route exact path='/' render={(props) => <SignUp {...props}/>} />
-        <Route  path='/sign-in' render={(props) => <SignIn {...props}/>} />
-        <Route  path='/welcome' render={(props) => <Welcome {...props} />} />
-        </Switch> 
-      </div>
+      </div> 
     </div>
   );
 }
