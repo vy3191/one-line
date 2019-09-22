@@ -18,7 +18,7 @@ function Header(props) {
          <Navbar.Brand href="#home" style={{color:'#FFF'}}>Home</Navbar.Brand>
       </Link>
       <Nav className="mr-auto">
-        <p className='one-day-a-line'>One-day-a-line</p>
+        <p className='one-day-a-line'>One-line-a-day-journal</p>
         {console.log(Logged_in_user)}
       </Nav> 
       <Link>

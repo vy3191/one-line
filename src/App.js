@@ -6,6 +6,7 @@ import Header from '../src/components/Navbar/Navbar';
 import SignUp from '../src/components/Form/SignUp';
 import SignIn from '../src/components/Form/SignIn'
 import Welcome from './components/Journal/Welcome';
+import ServerError from './components/Form/ServerError';
 
 import './App.css';
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route exact path='/' render={(props) => <SignUp {...props}/>} />
           <Route  path='/sign-in' render={(props) => <SignIn {...props}/>} />
           <Route  path='/welcome' render={(props) => <Welcome {...props} />} />
+          <Route path='/server-error' render={(props) => <ServerError />} />
         </Switch> 
       </div>    
     </div>
