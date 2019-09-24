@@ -4,14 +4,22 @@ import TenYearEntries from './TenYear';
 import NewEntry from './NewEntry';
 import JournalEntries from './JournalEntries';
 import Image from './Image';
-import  './Journal.scss';
 import axios from 'axios';
+import  './Journal.scss';
+
 
 export default function Welcome() {
     const [journalNotes, setJournalNotes] = useState([]);
-    useEffect( () => {
-       
-    });
+    useEffect( () =>  {
+        axios.get('https://fe-notes.herokuapp.com/note/get/all')
+             .then( response => {
+                  console.log(responsne);
+             })
+             .catch(err => {
+                 console.log(err);
+             })
+        
+    },[]);
     return (
         <div className='journal-entries'>
             <h1>Journal Entries Journey</h1>
