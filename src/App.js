@@ -7,7 +7,7 @@ import SignUp from '../src/components/Form/SignUp';
 import SignIn from '../src/components/Form/SignIn'
 import Welcome from './components/Journal/Welcome';
 import ServerError from './components/Form/ServerError';
-
+import Loading from './components/Load/Loading';
 import './App.css';
 function App() {
    
@@ -21,6 +21,7 @@ function App() {
           <Route  path='/sign-in' render={(props) => <SignIn {...props}/>} />
           <Route  path='/welcome' render={(props) => <Welcome {...props} />} />
           <Route path='/server-error' render={(props) => <ServerError />} />
+          <Route path='/loading' render={(props) => <Loading />} />
         </Switch> 
       </div>    
     </div>

@@ -10,8 +10,8 @@ import axios from 'axios';
 export default function Welcome() {
     const [journalNotes, setJournalNotes] = useState([]);
     useEffect( () => {
-       axios.get()
-    })
+       
+    });
     return (
         <div className='journal-entries'>
             <h1>Journal Entries Journey</h1>
@@ -26,7 +26,7 @@ export default function Welcome() {
                         <li><NavLink to='/welcome/new-entries'>Add New Entries</NavLink></li> 
                     </ul>      
                 </div>
-                <div className='journals'>
+                <div className='journals'>                   
                     <Switch>
                         <Route exact path='/welcome/journal-entries' render={(props) => <JournalEntries {...props}/>} />
                         <Route path='/welcome/ten-year-entries' render={(props) => <TenYearEntries {...props}/>} />

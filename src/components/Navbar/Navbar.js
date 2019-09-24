@@ -23,7 +23,7 @@ function Header(props) {
       </Nav> 
       <Link>
         <Nav>
-          { Logged_in_user && <button onClick={handleUser}>Logout</button>}
+          { Logged_in_user && <button className='logout-button' onClick={handleUser}>Logout</button>}
         </Nav>
       </Link>   
     </Navbar>
