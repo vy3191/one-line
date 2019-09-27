@@ -67,7 +67,7 @@ export default withRouter(withFormik({
       axios.post("https://bw-one-line-a-day.herokuapp.com/api/auth/register", values)
            .then( response => {              
               console.log(response.data.user)
-              console.log('Line70', FormikBag);
+              console.log('sign-up Line70', FormikBag);
               FormikBag.setStatus(response.data.user);
               FormikBag.props.history.push('/loading');
               setTimeout(() =>{

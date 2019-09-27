@@ -1,33 +1,98 @@
 import React, {useState, useEffect} from 'react';
-import {NavLink, Route, Switch} from 'react-router-dom';
+import { NavLink, Route, Switch, Redirect } from 'react-router-dom';
 import JournalEntries from './Read_Journals/JournalEntries';
 import TenYearEntries from './TenYear';
+import SingleJournal from './Update/SingleJournal';
 import NewEntry from './Create_Journals/NewEntry';
-
+import SESSION_STORE_KEY from  '../../Constants/constants';
 import Image from './Image';
 import axios from 'axios';
 import  './Journal.scss';
 
 
-export default function Welcome() {
+export default function Welcome(props) {
+   
+    const Logged_in_user = sessionStorage.getItem(SESSION_STORE_KEY);
+    const user = JSON.parse(Logged_in_user);
+    const token = user.token;
+    console.log(token)
+    const {id} = user;
     const [journals, setJournals] = useState([]);
+    const [isCreating, setIsCreating] = useState(false);
     useEffect( () =>  {       
-        getJournals();
+        getJournals(id);                      
     },[]);
 
-  const getJournals = () => {
-        axios.get('https://fe-notes.herokuapp.com/note/get/all')
+  const getJournals = (userId) => {        
+        axios.get(`https://bw-one-line-a-day.herokuapp.com/api/users/${userId}/posts`, {headers: {"authorization": token}})
         .then( response => {
              console.log(response.data);
              setJournals(response.data);
+            
         })
         .catch(err => {
             console.log(err);
         })
   }
 
-  console.log(journals)
+  const postJournals = (postingJournal, userId) => {
+       console.log(postingJournal)
+       axios.post(`https://bw-one-line-a-day.herokuapp.com/api/users/${userId}/posts`, postingJournal, {headers: {"authorization": token}})
+            .then( response => {    
+                console.log(response)
+                console.log('working @ line 41');
+                setJournals([ response.config.data, ...journals]);
+                getJournals(id);
+                setTimeout( () =>{
+                  return props.history.push('/welcome/journal-entries');
+                },1000)
+               
+            })
+            .catch(err => {
+               console.log(err);
+            })
+  }
+
+  const removeJournals = (journalId) => {
+       console.log('working', journalId)
+       const remove = async () => {
+          try {
+            const response = await axios.delete(` https://bw-one-line-a-day.herokuapp.com/api/users/posts/${journalId}`,{headers: {"authorization": token}});
+            console.log(response)
+            const newJournals = journals.filter( journal => journal.id != journalId);
+            setJournals(newJournals);
+            setTimeout( () =>{
+              return props.history.push('/welcome/journal-entries');
+            },1000)
+          } catch(err) {
+            console.log(err)
+          }
+       }
+       remove();
+  }
+    
+  const editJournals = (updatedObj,journalId) => {
+      console.log('edit working',updatedObj, journalId);
+      const update = async () => {
+        try {
+          const response = await axios.put(` https://bw-one-line-a-day.herokuapp.com/api/users/posts/${journalId}`, updatedObj, {headers: {"authorization": token}});
+          console.log(response);
+          if(response.status == 200) {
+             getJournals(id);
+          }
+          setTimeout( () =>{
+            return props.history.push('/welcome/journal-entries');
+          },1000)
+
+        } catch(err) {
+          console.log(err)
+        }
+     }
+     update();
+  }
+   
   return (
+     
       <div className='journal-entries'>
         <h1>Journal Entries Journey</h1>
         <div className='journal-container'>           
@@ -47,7 +112,12 @@ export default function Welcome() {
                 <Route path='/welcome/ten-year-entries' 
                        render={(props) => <TenYearEntries {...props}/>} />
                 <Route path='/welcome/new-entries' 
-                       render={(props) => <NewEntry /> } />
+                       render={(props) => <NewEntry {...props} id={id} postJournals={postJournals} /> } />
+                <Route path='/welcome/single-journal/:id' 
+                       render={(props) => <SingleJournal {...props} 
+                                           id={id} journals={journals}
+                                           removeJournals={removeJournals}
+                                           editJournals={editJournals} />} />      
                 <Route render={(props) => <Image {...props} />} />
               </Switch>
             </div>   

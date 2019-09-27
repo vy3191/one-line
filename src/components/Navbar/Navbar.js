@@ -6,6 +6,8 @@ import './Navbar.scss';
 
 function Header(props) {
     const Logged_in_user = sessionStorage.getItem(SESSION_STORE_KEY);
+    const user = JSON.parse(Logged_in_user);
+    
     const [sessionKey, setSessionKey] = useState('');
     const handleUser = () => {
         setSessionKey(Logged_in_user);

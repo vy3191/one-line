@@ -8,20 +8,16 @@ import axios from 'axios';
 import SESSION_STORAGE_KEY from '../../Constants/constants'
 import './Form.scss';
 
-
-
-
-
 function SignIn (props){
   const {errors,touched, status}= props;
   const [users, setUsers] = useState([]);
-  console.log(status)
+  // console.log(status)
   useEffect(() => {
     if(status) {
        setUsers([...users, status])
     }
   }, [status])
-  console.log(users)
+  // console.log(users)
  return(
    <Form>
     <div className='sign-up-sign-in-form'>
@@ -67,9 +63,11 @@ export default withRouter(withFormik({
       console.log(values);
       axios.post("https://bw-one-line-a-day.herokuapp.com/api/auth/login", values)
            .then( res => {  
-              console.log(res.data)            
+              console.log('sign-in',res.data)  
+              const myUser = {name: res.data.user.username, id: res.data.user.id, token: res.data.token};
+              console.log('Line 68 sign-in', myUser);       
               FormikBag.setStatus(res.data);
-              sessionStorage.setItem(SESSION_STORAGE_KEY, res.data.token);
+              sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(myUser));
               FormikBag.resetForm();
               FormikBag.props.history.push('/welcome');
            })
