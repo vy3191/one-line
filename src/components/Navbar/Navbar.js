@@ -10,9 +10,12 @@ function Header(props) {
      console.log('line 10', user)
     const [sessionKey, setSessionKey] = useState('');
     const handleUser = () => {
-        setSessionKey(Logged_in_user);
-        sessionStorage.removeItem(SESSION_STORE_KEY);
-        props.history.push('/sign-in');
+        setSessionKey(Logged_in_user);        
+        setTimeout(() => {
+          sessionStorage.removeItem(SESSION_STORE_KEY);
+          props.history.push('/sign-in');
+        },450)
+        
     }
    return(
     <Navbar className='header' style={{background: 'rgba(0,0,0,.5)', color: '#FFFFFF'}}>

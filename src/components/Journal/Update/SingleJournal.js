@@ -10,8 +10,12 @@ export default function SingleJournalCard(props) {
    const [singleJournal, setSingleJournal] = useState({});
    const [newJournal, setNewJournal] = useState({});
    const [show, setShow] = useState(false);
+   const [deleteShow, setDeleteShow] = useState(false);
    const handleClose = () => setShow(false);
    const handleShow = () => setShow(true);
+   const handleDeleteClose = () => setDeleteShow(false);
+   const handleDeleteShow = () => setDeleteShow(true);
+ 
 
   useEffect( () => {
     const journal = props.journals.filter( singleJournal => (singleJournal.id == id))[0];
@@ -20,6 +24,7 @@ export default function SingleJournalCard(props) {
    },[])
 
   const delJournal = () => {
+      handleDeleteShow();
       props.removeJournals(id)
   }
 
@@ -43,7 +48,7 @@ export default function SingleJournalCard(props) {
           <div className='del-edit-buttons'>   
               <span className='id'>Your Journal id{}#{id}</span>        
               <button className='edit' onClick={updateJournal}>Edit</button>
-              <button className='del' onClick={delJournal}>Delete</button>
+              <button className='del' onClick={handleDeleteShow}>Delete</button>
           </div>
             <Card.Body className='card-body'>           
               <Card.Title>Title:{singleJournal.title}</Card.Title> 
@@ -81,7 +86,23 @@ export default function SingleJournalCard(props) {
                 <Button variant="secondary" onClick={handleClose}>Close</Button>
               <Button type='submit' variant="primary" onClick={handleClose}>Save Changes </Button>
             </Form>          
-        </Modal>            
+        </Modal>      
+        <div className='delete-modal'>
+        <Modal  show={deleteShow} onHide={handleDeleteClose}>
+          <Modal.Header closeButton>
+             <Modal.Title>{newJournal.title}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Do you want to delete this Journal?</Modal.Body>
+          <Modal.Footer>
+              <Button className='no-yes' variant="secondary" onClick={handleDeleteClose}>
+                No
+              </Button>
+              <Button className='no-yes' variant="primary" onClick={delJournal}>
+                Yes
+              </Button>
+          </Modal.Footer>
+        </Modal>
+        </div>      
     </div>
     
   );
