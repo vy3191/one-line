@@ -1,6 +1,8 @@
 import React from 'react';
 import {CardGroup, Card} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './JournalEntries.scss';
+
 
 export default function JournalEntryCard(props) {
 
@@ -14,8 +16,7 @@ export default function JournalEntryCard(props) {
   return(
    
     <div>      
-        <CardGroup className='card-group'>
-       
+        <CardGroup className='card-group'>       
           <Card>    
           <Link to={`/welcome/single-journal/${id}`}>  
             <Card.Body>             

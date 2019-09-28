@@ -81,6 +81,7 @@ export default function Welcome(props) {
           if(response.status == 200) {
              getJournals(id);
           }
+          props.history.push('/loading');
           setTimeout( () =>{
             return props.history.push('/welcome/journal-entries');
           },1000)

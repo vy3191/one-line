@@ -38,13 +38,15 @@ export default function SingleJournalCard(props) {
 
    return(   
     <div>      
-      <CardGroup className='card-group'>
-          <Card>          
+      <CardGroup className='card-group'>          
+          <Card> 
+          <div className='del-edit-buttons'>   
+              <span className='id'>Your Journal id#:{id}</span>        
+              <button className='edit' onClick={updateJournal}>Edit</button>
+              <button className='del' onClick={delJournal}>X</button>
+          </div>
             <Card.Body>           
-              <Card.Title>{singleJournal.title}</Card.Title>
-              <button onClick={delJournal}>Delete</button>
-              <button onClick={updateJournal}>Edit</button>
-              <span>{id}</span>             
+              <Card.Title>Title:{singleJournal.title}</Card.Title> 
               <hr />
               <Card.Text>
                 {singleJournal.contents}

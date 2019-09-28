@@ -1,4 +1,21 @@
+.del-edit-buttons {
+    .id {
+       position: absolute;
+       left:13px;
+       top: 15px;
+       color: #FFFFFF;
+    }
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    background: rgba(0,0,0,.3);
+    buttons {
+       width: 80px;
+       height: 80px;
+       background: rgba(0,0,0,0.8);
+    }
 
+}
 .modal-content {
   margin-top:100px;
   .modal-header {
