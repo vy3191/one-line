@@ -1,7 +1,5 @@
 import React from 'react';
 import {Route, NavLink, Switch} from 'react-router-dom';
-import EntryForm from './components/Journal/EntryForm';
-import TenYear from './components/Journal/TenYear';
 import Header from '../src/components/Navbar/Navbar';
 import SignUp from '../src/components/Form/SignUp';
 import SignIn from '../src/components/Form/SignIn'

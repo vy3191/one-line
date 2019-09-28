@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 export default function TenYear() {
-    return (
-        <div>
-            <h2>Ten Year Page</h2>
-        </div>
-    )
+   return(
+     <div>
+       <h1>Ten Year Journals</h1>
+     </div>
+   )
 }
