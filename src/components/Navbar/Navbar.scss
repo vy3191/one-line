@@ -8,7 +8,7 @@
    color: #FFFFFF;
     div {
        text-align: right;
-      p {
+      p   {
        text-align: right;
        font-size: 23px;
        margin-top: 5px;
@@ -22,6 +22,14 @@
     }
      a:hover {
          text-decoration: none;
+     }
+     .welcome-msg {
+         padding-top:20px;
+         padding-right: 40px;
+         font-family: 'Cedarville Cursive', cursive;
+         text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.6);
+         font-size: 22px;
+         color: #FFF;
      }
     .logout-button {
         background: rgba(105,197,189,0.7);

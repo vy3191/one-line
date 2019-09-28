@@ -7,7 +7,7 @@ import './Navbar.scss';
 function Header(props) {
     const Logged_in_user = sessionStorage.getItem(SESSION_STORE_KEY);
     const user = JSON.parse(Logged_in_user);
-    
+     console.log('line 10', user)
     const [sessionKey, setSessionKey] = useState('');
     const handleUser = () => {
         setSessionKey(Logged_in_user);
@@ -23,8 +23,9 @@ function Header(props) {
         <p className='one-day-a-line'>One-line-a-day-journal</p>
         {console.log(Logged_in_user)}
       </Nav> 
+      { Logged_in_user && <p className='welcome-msg'> welcome{' '}{user.name}!</p>}
       <Link>
-        <Nav>
+        <Nav>         
           { Logged_in_user && <button className='logout-button' onClick={handleUser}>Logout</button>}
         </Nav>
       </Link>   

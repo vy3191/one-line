@@ -42,7 +42,7 @@ export default function NewEntry(props) {
                         name='title'
                         value={myJournal.title}
                         onChange={inputHandler}
-                        placeholder="Enter Your Title Here" />
+                        placeholder="Enter Your Title Here" required />
         </Form.Group>             
         <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Label className='title'>Your Journal Entry Here:</Form.Label>
@@ -50,7 +50,7 @@ export default function NewEntry(props) {
                         rows="3"
                         name='contents'
                         value={myJournal.contents}
-                        onChange={inputHandler} />
+                        onChange={inputHandler}  required/>
         </Form.Group>
         <Button className='submit-button' variant="primary" type="submit">Submit</Button>
     </Form>

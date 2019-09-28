@@ -64,7 +64,9 @@ export default withRouter(withFormik({
       axios.post("https://bw-one-line-a-day.herokuapp.com/api/auth/login", values)
            .then( res => {  
               console.log('sign-in',res.data)  
-              const myUser = {name: res.data.user.username, id: res.data.user.id, token: res.data.token};
+              const myUser = {name: res.data.user.username, 
+                              id: res.data.user.id,                              
+                              token: res.data.token};
               console.log('Line 68 sign-in', myUser);       
               FormikBag.setStatus(res.data);
               sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(myUser));
