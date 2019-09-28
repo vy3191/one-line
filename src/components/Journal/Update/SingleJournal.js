@@ -41,11 +41,11 @@ export default function SingleJournalCard(props) {
       <CardGroup className='card-group'>          
           <Card> 
           <div className='del-edit-buttons'>   
-              <span className='id'>Your Journal id#:{id}</span>        
+              <span className='id'>Your Journal id{}#{id}</span>        
               <button className='edit' onClick={updateJournal}>Edit</button>
               <button className='del' onClick={delJournal}>X</button>
           </div>
-            <Card.Body>           
+            <Card.Body className='card-body'>           
               <Card.Title>Title:{singleJournal.title}</Card.Title> 
               <hr />
               <Card.Text>
@@ -80,10 +80,7 @@ export default function SingleJournalCard(props) {
                   </Form.Group>               
                 <Button variant="secondary" onClick={handleClose}>Close</Button>
               <Button type='submit' variant="primary" onClick={handleClose}>Save Changes </Button>
-            </Form>
-          {/* <Modal.Footer> */}
-          
-          {/* </Modal.Footer> */}
+            </Form>          
         </Modal>            
     </div>
     

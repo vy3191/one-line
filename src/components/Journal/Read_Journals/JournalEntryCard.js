@@ -18,10 +18,12 @@ export default function JournalEntryCard(props) {
     <div>      
         <CardGroup className='card-group'>       
           <Card>    
+          <div className='del-edit-buttons'>   
+              <span className='id-number'>ID:{id}</span>  
+          </div>
           <Link to={`/welcome/single-journal/${id}`}>  
             <Card.Body>             
-                <Card.Title>{title}</Card.Title>            
-              <span>{id}</span>             
+                <Card.Title className='title'>Title:{}{title}</Card.Title>    
               <hr />
               <Card.Text>
                 {contents}

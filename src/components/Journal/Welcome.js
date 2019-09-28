@@ -62,6 +62,7 @@ export default function Welcome(props) {
             console.log(response)
             const newJournals = journals.filter( journal => journal.id != journalId);
             setJournals(newJournals);
+            props.history.push('/loading');
             setTimeout( () =>{
               return props.history.push('/welcome/journal-entries');
             },1000)

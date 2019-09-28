@@ -1,0 +1,29 @@
+div.form-container {
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+  align-items: center;
+  h4 {
+    background: #1f9292;
+    height: 50px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:0px;
+    width: 350px;
+    text-align: center;
+  }
+Form {   
+   
+  .title {
+     width:100%;
+     height: 30px;
+     text-align: left;    
+     padding:20px 0px;
+
+  }
+  .submit-button {
+     margin-top: 20px;
+  }
+}
+}
