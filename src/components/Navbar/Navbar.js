@@ -23,7 +23,7 @@ function Header(props) {
         <p className='one-day-a-line'>One-line-a-day-journal</p>
         {console.log(Logged_in_user)}
       </Nav> 
-      { Logged_in_user && <p className='welcome-msg'> welcome{' '}{user.name}!</p>}
+      { Logged_in_user && <p className='welcome-msg'> welcome{' '}{user.name}</p>}
       <Link>
         <Nav>         
           { Logged_in_user && <button className='logout-button' onClick={handleUser}>Logout</button>}

@@ -43,7 +43,7 @@ export default function SingleJournalCard(props) {
           <div className='del-edit-buttons'>   
               <span className='id'>Your Journal id{}#{id}</span>        
               <button className='edit' onClick={updateJournal}>Edit</button>
-              <button className='del' onClick={delJournal}>X</button>
+              <button className='del' onClick={delJournal}>Delete</button>
           </div>
             <Card.Body className='card-body'>           
               <Card.Title>Title:{singleJournal.title}</Card.Title> 

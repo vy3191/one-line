@@ -65,7 +65,7 @@ export default function Welcome(props) {
             props.history.push('/loading');
             setTimeout( () =>{
               return props.history.push('/welcome/journal-entries');
-            },1000)
+            },700)
           } catch(err) {
             console.log(err)
           }
@@ -85,7 +85,7 @@ export default function Welcome(props) {
           props.history.push('/loading');
           setTimeout( () =>{
             return props.history.push('/welcome/journal-entries');
-          },1000)
+          },700)
 
         } catch(err) {
           console.log(err)
@@ -113,7 +113,7 @@ export default function Welcome(props) {
                 <Route exact path='/welcome/journal-entries' 
                        render={(props) => <JournalEntries {...props} journals={journals}/>} />
                 <Route path='/welcome/ten-year-entries' 
-                       render={(props) => <TenYearEntries {...props}/>} />
+                       render={(props) => <JournalEntries {...props} journals={journals}/>} />
                 <Route path='/welcome/new-entries' 
                        render={(props) => <NewEntry {...props} id={id} postJournals={postJournals} /> } />
                 <Route path='/welcome/single-journal/:id' 
