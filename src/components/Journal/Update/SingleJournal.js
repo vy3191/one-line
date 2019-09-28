@@ -3,6 +3,7 @@ import {CardGroup, Modal, Card} from 'react-bootstrap';
 // import SESSION_STORE_KEY from  '../../../Constants/constants';
 // import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
+import './SingleJournal.scss';
 
 export default function SingleJournalCard(props) {
    const {id} = props.match.params;      
@@ -55,6 +56,9 @@ export default function SingleJournalCard(props) {
           </Card>      
       </CardGroup>
       <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Edit Your Journal Here</Modal.Title>
+          </Modal.Header>
           <Form onSubmit={handleSubmit}> 
             <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Label>Title:</Form.Label>

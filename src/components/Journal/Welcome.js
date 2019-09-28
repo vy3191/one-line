@@ -43,6 +43,7 @@ export default function Welcome(props) {
                 console.log('working @ line 41');
                 setJournals([ response.config.data, ...journals]);
                 getJournals(id);
+                props.history.push('/loading');
                 setTimeout( () =>{
                   return props.history.push('/welcome/journal-entries');
                 },1000)
