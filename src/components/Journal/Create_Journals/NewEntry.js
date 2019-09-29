@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Form, Button } from 'react-bootstrap';
-import {Redirect} from 'react-router-dom';
+// import {Redirect} from 'react-router-dom';
 import './NewEntry.scss';
 
 
@@ -28,10 +28,8 @@ export default function NewEntry(props) {
           creating: true
        })   
   }
-
   
-
-   return(
+  return(
     <>
       <div className='form-container'>  
       <h4>New Journal Entry</h4>  

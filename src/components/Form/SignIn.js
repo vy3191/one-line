@@ -1,8 +1,8 @@
 import React, {useState,useEffect} from 'react';
 import { withFormik, Form, Field } from "formik";
-import {withRouter, Link,Route, NavLink, Switch} from 'react-router-dom';
+import {withRouter, Link, NavLink } from 'react-router-dom';
 import {Button} from 'react-bootstrap'
-import Welcome from '../Journal/Welcome';
+// import Welcome from '../Journal/Welcome';
 import * as yup from 'yup';
 import axios from 'axios';
 import SESSION_STORAGE_KEY from '../../Constants/constants'

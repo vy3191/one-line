@@ -12,11 +12,11 @@ export default function Modal() {
         Launch demo modal
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={deleteShow} onHide={handleDeleteClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>Do you want to delete this Journal?</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleDeleteClose}>
             No

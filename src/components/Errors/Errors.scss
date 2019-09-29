@@ -1,0 +1,27 @@
+
+.server-error {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 650px;
+  margin: 100px auto;
+  padding: 50px 100px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.75);
+   h1 {
+     color: rgba(255,0,0,0.85);
+   }
+  .server-error-div {
+    background: rgba(0, 0, 0, 0.15);
+    height: 45px;
+    color: #FFFFFF;    
+    padding: 7px 18px;
+    margin-top: 50px;
+    padding-top:10px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.5);     
+  }
+ a:hover {
+    text-decoration: none;
+ }
+}
+

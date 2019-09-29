@@ -1,13 +1,12 @@
 import React from 'react';
-import Server from '../Img/Server.png';
-import {Link,Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import './Errors.scss'
 
 export default function ServerError(props) {
    return(
       <div className='server-error'>
-        <h1>Internal Server Error</h1>
-        <img width={600} heigh={600} src={Server} alt="Server-Error" />
-        {/* <Redirect to='/' /> */}
+        <h1>500: Internal Server Error</h1>
+        <p>There is a problem with the resource you are looking for.</p>
         <Link to='/'>
            <div className='server-error-div'> {'<<<'} Previous Page</div>
         </Link>

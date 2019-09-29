@@ -9,6 +9,7 @@ export default function JournalEntries(props) {
    if(props.journals.length ===0) {
       return <EmptyJournalsPage />
    } 
+   console.log(props);
    return(
      <div>
      <h2>Journal Entries </h2>
