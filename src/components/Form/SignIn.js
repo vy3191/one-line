@@ -11,6 +11,7 @@ import './Form.scss';
 function SignIn (props){
   const {errors,touched, status}= props;
   const [users, setUsers] = useState([]);
+  const [errorCode, setErrorCode] = useState()
   // console.log(status)
   useEffect(() => {
     if(status) {
@@ -38,11 +39,9 @@ function SignIn (props){
     <div className='sign-in-sign-up-button'>
         <Button className='sign-button' type='submit' variant="success" size="lg">Sign In</Button>
     </div>
-    <p>Please {" "} 
-         <Link to='/'>
-            <span>sign up here</span>.
-         </Link>
-    </p>
+    {users[0] != 401 && <p>Please {" "}<Link to='/'><span>sign up here</span></Link></p>}
+    {users[0] == 401 && <p style={{color: 'red', fontWeight: 'bold'}}>Invalid Credentials</p>}
+    
    </Form>
   )
 };
@@ -74,7 +73,11 @@ export default withRouter(withFormik({
               FormikBag.props.history.push('/welcome');
            })
            .catch( error=> {
-              console.log(error)
+            if (error.response) {
+              console.log(error.response.data);
+              console.log(error.response.status);
+              FormikBag.setStatus(error.response.status);
+              }  
            })
    }
 })(SignIn));

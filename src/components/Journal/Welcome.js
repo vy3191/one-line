@@ -31,6 +31,8 @@ export default function Welcome(props) {
         })
         .catch(err => {
             console.log(err);
+            const errorResponse = err.response.status;
+            console.log(errorResponse);
           
         })
   }
@@ -68,7 +70,8 @@ export default function Welcome(props) {
               return props.history.push('/welcome/journal-entries');
             },700)
           } catch(err) {
-            console.log(err)
+            console.log(err);
+            props.history.push('/page-not-found');
           }
        }
        remove();
